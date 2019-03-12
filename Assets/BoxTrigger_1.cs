@@ -8,7 +8,7 @@ public class BoxTrigger_1 : MonoBehaviour
     public bool TargetStood = false;
     public GameObject[] targets;
     Vector3 tpos;
-    float control;
+  public  float control = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class BoxTrigger_1 : MonoBehaviour
                   }
                 else
                 {
-                    target.transform.Rotate(0, 1, 0);
+                    target.transform.Rotate(0, 1*control, 0);
                     //       tpos = target.transform.rotation.eulerAngles;
                     //control = tpos.x;
                     //tpos.x -= 1;
@@ -45,9 +45,15 @@ public class BoxTrigger_1 : MonoBehaviour
             {
                 if(target.GetComponent<collsionTrigger>().hit == true)
                 {
+                    if (target.transform.eulerAngles.x <= 2 && target.transform.eulerAngles.x != 0)
+                    {
+                        TargetStood = true;
+                    }
+                    else
+                    {
 
-                    target.transform.Rotate(0, -1, 0);
-
+                        target.transform.Rotate(0, -1*control, 0);
+                    }
                 }
             }
         }

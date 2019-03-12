@@ -80,6 +80,8 @@ public class playerController : MonoBehaviour
 
     private void slowMo ()
     {
+        print(Time.timeScale);
+        print(Time.fixedDeltaTime);
         Time.timeScale = slowdownFactor;
         Time.fixedDeltaTime = slowdownFactor * 0.02f;
 
@@ -87,7 +89,7 @@ public class playerController : MonoBehaviour
     private void normalMo()
     {
         Time.timeScale = 1;
-        Time.fixedDeltaTime = Time.fixedDeltaTime;
+        Time.fixedDeltaTime = 0.02f;
 
     }
 
